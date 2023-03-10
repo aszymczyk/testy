@@ -1,0 +1,113 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #222;
+	font-family: 'Ubuntu', sans-serif;
+	overflow: hidden;
+}
+
+.box {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background-color: rgb(0, 0, 0);
+	box-shadow: 0px 0px 5px rgb(24, 110, 110);
+}
+
+.link {
+	position: relative;
+	padding: 10px 20px;
+	color: rgb(24, 110, 110);
+	text-decoration: none;
+	z-index: 10;
+}
+
+.one::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #fff;
+	transform: scaleX(0);
+	transition: transform 0.3s;
+}
+
+.one:hover::after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+.two {
+	z-index: 0;
+}
+.two::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	background-color: #fff;
+}
+.two:hover::after {
+	animation: bg 0.5s 0.1s forwards;
+	z-index: -1;
+}
+
+@keyframes bg {
+	from {
+		width: 0;
+		height: 0;
+	}
+	to {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.three {
+	z-index: 0;
+}
+.three::after {
+	position: absolute;
+	content: '';
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	transform: rotateX(90deg);
+}
+
+.three:hover::after {
+	animation: bg1 0.5s 0.1s forwards;
+	z-index: -1;
+}
+
+@keyframes bg1 {
+	from {
+		transform: rotateX(90deg);
+	}
+	to {
+		transform: rotateX(0);
+	}
+}
+
+.four::after {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
+}
